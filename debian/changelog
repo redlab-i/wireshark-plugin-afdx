@@ -1,0 +1,5 @@
+wireshark-plugin-afdx (0.1.0-1) unstable; urgency=medium
+
+  * Initial release.
+
+ -- Alexander GQ Gerasiov <gq@debian.org>  Fri, 31 Mar 2017 20:00:30 +0300

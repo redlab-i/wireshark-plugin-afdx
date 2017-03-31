@@ -1,0 +1,15 @@
+Source: wireshark-plugin-afdx
+Section: net
+Priority: optional
+Maintainer: Alexander Gerasiov <gq@debian.org>
+Build-Depends: debhelper (>= 9),
+ cmake,
+ wireshark-dev, libwireshark-dev,
+ libcsv-dev,
+Standards-Version: 3.9.6
+Homepage: http://github.com/redlab-i/wireshark-plugin-afdx
+
+Package: wireshark-plugin-afdx
+Architecture: any
+Depends: wireshark, ${misc:Depends}, ${shlibs:Depends}
+Description: wireshark plugin for AFDX (ARINC 664)
