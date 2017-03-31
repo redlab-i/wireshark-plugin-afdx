@@ -1,0 +1,268 @@
+# Russian translations for wireshark-plugin-afdx package
+# Английские переводы для пакета wireshark-plugin-afdx.
+#
+# https://github.com/redlab-i/wireshark-plugin-afdx
+#
+# Copyright 2015-2017 REDLAB-I, LLC <http://redlab-i.ru>
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+msgid ""
+msgstr ""
+"Project-Id-Version: wireshark-plugin-afdx\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-31 13:53+0300\n"
+"PO-Revision-Date: 2017-03-31 16:21+0300\n"
+"Last-Translator: Wictor Scherbinin <wictor@redlab-i.ru>\n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 1.8.11\n"
+
+#, c-format
+msgid " (MTU: %d bytes; BAG: %d us; Jitter: %d us)"
+msgstr " (MTU: %d байт; BAG: %d мкс; Jitter: %d мкс)"
+
+msgid " (Unknown VL ID)"
+msgstr " (Неизвестный VL ID)"
+
+#, c-format
+msgid "%d.%06d ms"
+msgstr "%d.%06d мс"
+
+#, c-format
+msgid ", Iface: %s"
+msgstr ", Интерф.: %s"
+
+msgid "A CSV file containing VL ID, MTU, BAG and Jitter for each virtual link"
+msgstr ""
+"CSV-файл, содержащий значения VL ID, MTU, BAG и Jitter для каждого "
+"виртуального канала"
+
+msgid ""
+"A CSV file containing min dst MAC, max dst MAC, Equipment name and "
+"Application name for each equipment and application"
+msgstr ""
+"CSV-файл, содержащий мин. MAC-адрес приёмника, макс. MAC-адрес приёмника, "
+"Обозначение оборудования, Обозначение приложения для каждого элемента "
+"оборудования и приложения"
+
+msgid "A file with the list of valid VL ID ranges for this interface"
+msgstr "Файл со списком корректных диапазонов VL ID для этого интерфейса"
+
+msgid "A table with names of files with valid VL ID ranges for each interface"
+msgstr "Таблица имен файлов диапазонов корректных VL ID для каждого интерфейса"
+
+msgid "AFDX interface identifier (1 - network A, 2 - network B)"
+msgstr "Идентификатор интерфейса (1 - сеть A, 2 - сеть B)"
+
+msgid "Application"
+msgstr "Приложение"
+
+msgid "Application name based on MAC destination"
+msgstr "Имя приложения, полученное по MAC-адресу приёмника"
+
+msgid "Assume AFDX packets have FCS"
+msgstr "Считать, что пакеты AFDX имеют поле FCS"
+
+msgid "Avionics Full-Duplex Switched Ethernet"
+msgstr "Avionics Full-Duplex Switched Ethernet"
+
+msgid "Check FCS for AFDX packets"
+msgstr "Проверять FCS для пакетов AFDX"
+
+msgid "Destinaion device ID"
+msgstr "Идент. оборудования"
+
+msgid "Destinaion device direction"
+msgstr "Идент. стороны"
+
+msgid "Destinaion device location"
+msgstr "Идент. местонахождения"
+
+msgid "Destinaion network ID"
+msgstr "Идент. раздела"
+
+msgid "Destination IP"
+msgstr "IP-адрес приёмника"
+
+msgid "Destination IP is neither Class A nor Class D"
+msgstr "IP приёмника не принадлежит ни классу A, ни классу D"
+
+msgid "Destination MAC"
+msgstr "MAC-адрес приёмника"
+
+msgid "Destination MAC equipment table"
+msgstr "Таблица оборудования и приложений  MAC"
+
+msgid "Enable AFDX dissection"
+msgstr "Разрешить разбор Ethernet-кадров как AFDX"
+
+msgid "Equipment"
+msgstr "Оборудование"
+
+msgid "Equipment name based on MAC destination"
+msgstr "Имя оборудования, полученное по MAC-адресу приёмника"
+
+msgid "Ethernet checksum"
+msgstr "Контрольная сумма протокола Ethernet"
+
+msgid "Frame check sequence"
+msgstr "Контрольная сумма кадра"
+
+msgid "Frame counter"
+msgstr "Счетчик кадров"
+
+msgid "Frame number error"
+msgstr "Ошибка в номерах кадров"
+
+#, c-format
+msgid "Frame number gap: previous: %d, current: %d"
+msgstr "Пропуск в номерах кадров: предыдущий: %d, текущий: %d"
+
+msgid "Frame size exceeds MTU"
+msgstr "Размер кадра превышает MTU"
+
+#, c-format
+msgid "Frame size larger than MTU: frame size = %d bytes > %d bytes = MTU"
+msgstr "Размер кадра превышает MTU: размер кадра = %d байт > %d байт = MTU"
+
+msgid "Hardware interface"
+msgstr "Аппаратный интерфейс"
+
+msgid ""
+"If enabled, all UDP frames are interpreted as AFDX (rather than plain "
+"Ethernet)"
+msgstr ""
+"Если включено, все Ethernet-кадры, содержащие UDP, интерпретируются как "
+"кадры AFDX (а не как кадры обычного Ethernet'а)"
+
+msgid "If enabled, assume that all AFDX packets have Frame Check Sequence"
+msgstr ""
+"Если выбрано, считать, что все пакеты AFDX имеют поле контрольной суммы "
+"кадра (Frame Check Sequence)"
+
+msgid "If enabled, check FCS for AFDX packets"
+msgstr ""
+"Если выбрано, проверять правильность контрольной суммы в поле FCS для "
+"пакетов AFDX"
+
+msgid "Incorrect FCS"
+msgstr "Неправильная контрольная сумма кадра"
+
+msgid "Incorrect Virtual Link ID for this interface"
+msgstr "Некорректный VL ID для этого интерфейса"
+
+msgid "Interface ID"
+msgstr "ID интерфейса"
+
+msgid "Interface name"
+msgstr "Имя интерфейса"
+
+msgid "Invalid"
+msgstr "Некорректное значение"
+
+msgid "Parameters of Virtual Links"
+msgstr "Параметры виртуальных каналов"
+
+msgid "Partition ID"
+msgstr "Идент. раздела"
+
+msgid "Sender Device ID in IP doesn't match Sender Device ID in MAC"
+msgstr ""
+"Идент. оборудования в MAC-адресе источника не совпадает с идент. "
+"оборудования в IP-адресе отправителя"
+
+msgid "Sender Network ID in IP doesn't match Sender Network ID in MAC"
+msgstr ""
+"Идент. сети в MAC-адресе источника не совпадает с идент. сети в IP-адресе "
+"отправителя"
+
+msgid "Sender device ID"
+msgstr "Идент. оборудования"
+
+msgid "Sender device direction"
+msgstr "Идент. стороны"
+
+msgid "Sender device location"
+msgstr "Идент. местонахождения"
+
+msgid "Sender network ID"
+msgstr "Идент. сети"
+
+msgid "Sender partition ID"
+msgstr "Идент. раздела"
+
+msgid "Source IP"
+msgstr "IP-адрес отправителя"
+
+msgid "Source IP is not Class A"
+msgstr "IP-адрес отправителя не принадлежит классу A"
+
+msgid "Source MAC"
+msgstr "MAC-адрес источника"
+
+msgid "The hardware interface where the packet was actually captured"
+msgstr "Аппаратный интерфейс, с которого был получен кадр"
+
+msgid "Time delta for previous packet of same VL"
+msgstr "Промежуток времени от предыдущего кадра данного VL"
+
+msgid "Unknown Virtual Link ID"
+msgstr "Неизвестный VL ID"
+
+msgid "VL BAG violation"
+msgstr "Нарушение интервала BAG"
+
+#, c-format
+msgid "VL BAG violation: delta = %d.%06d ms < %d.%06d ms = BAG - Jitter"
+msgstr ""
+"Нарушение интервала BAG для данного VL: delta = %d.%06d мс < %d.%06d мс = "
+"BAG - Jitter"
+
+msgid "VL ID"
+msgstr "VL ID"
+
+msgid "VL ID in dst IP does not match VL ID in dst MAC"
+msgstr ""
+"VL ID в IP-адресе приёмника не совпадает с VL ID в MAC-адресе приёмника"
+
+msgid "VL ID list filename"
+msgstr "Имя файла списка VL ID"
+
+msgid "Valid VL range not specified for this interface"
+msgstr "Диапазон корректных VL ID не задан для этого интерфейса"
+
+msgid "Valid VL table"
+msgstr "Таблица корректных VL ID"
+
+msgid "Valid VLs"
+msgstr "Корректные VL ID"
+
+msgid "Virtual Link Identifier"
+msgstr "Идентификатор виртуального канала"
+
+msgid "correct"
+msgstr "правильная"
+
+msgid "incorrect, should be:"
+msgstr "неправильная, должно быть:"
+
+msgid "validation disabled"
+msgstr "проверка отключена"
