@@ -1,3 +1,9 @@
+wireshark-plugin-afdx (0.1.0-1~bpo7+1) wheezy-stand; urgency=medium
+
+  * Rebuild for wheezy-stand.
+
+ -- Alexander GQ Gerasiov <gq@debian.org>  Fri, 31 Mar 2017 20:01:29 +0300
+
 wireshark-plugin-afdx (0.1.0-1) unstable; urgency=medium
 
   * Initial release.
