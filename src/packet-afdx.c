@@ -48,7 +48,7 @@
 #include <glib/gi18n-lib.h>
 
 #undef _
-#define _(text) dgettext("afdx", text)
+#define _(text) dgettext(GETTEXT_PACKAGE, text)
 
 #include "interval_map.h"
 #include "afdx_utilities.h"
@@ -869,7 +869,7 @@ proto_register_afdx(void)
                                             g_str_equal,
                                             g_free,
                                             g_free);
-    bindtextdomain("afdx", LOCALE_PATH);
+    bindtextdomain(GETTEXT_PACKAGE, LOCALE_PATH);
     
     static uat_field_t iface_table_fields[] = {
         UAT_FLD_CSTRING(iface_table_rows, iface_name, N_("Interface name"), N_("Interface name")),
