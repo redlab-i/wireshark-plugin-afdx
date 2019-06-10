@@ -156,9 +156,9 @@ range_t* merge_ranges(range_t* first, range_t* second) {
     range_t* result = NULL;
     
     if(!*first_str && !*second_str) {
-        return range_empty();
+        return range_empty(NULL);
     } else if(*first_str && !*second_str) {
-        convert_ret_t r = range_convert_str(&result, first_str, G_MAXUINT32);
+        convert_ret_t r = range_convert_str(NULL, &result, first_str, G_MAXUINT32);
         if(r == CVT_NO_ERROR) {
             return result;
         } else {
@@ -166,7 +166,7 @@ range_t* merge_ranges(range_t* first, range_t* second) {
             return NULL;
         }
     } else if (!*first_str && *second_str) {
-        convert_ret_t r = range_convert_str(&result, second_str, G_MAXUINT32);
+        convert_ret_t r = range_convert_str(NULL, &result, second_str, G_MAXUINT32);
         if(r == CVT_NO_ERROR) {
             return result;
         } else {
@@ -176,7 +176,7 @@ range_t* merge_ranges(range_t* first, range_t* second) {
     }
     
     gchar* joined_str = g_strjoin(",", first_str, second_str, NULL);
-    convert_ret_t r = range_convert_str(&result, joined_str, G_MAXUINT32);
+    convert_ret_t r = range_convert_str(NULL, &result, joined_str, G_MAXUINT32);
     g_free(joined_str);
     if(r == CVT_NO_ERROR) {
         return result;
@@ -296,7 +296,7 @@ range_t* load_range_from_file(const gchar* filename, const char** err, guint32 m
     g_free(processed_contents);
     
     range_t* result = NULL;
-    convert_ret_t r = range_convert_str(&result, converted_contents, max_value);
+    convert_ret_t r = range_convert_str(NULL, &result, converted_contents, max_value);
     g_free(converted_contents);
     
     if(r == CVT_SYNTAX_ERROR) {
