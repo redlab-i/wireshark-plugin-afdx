@@ -1,3 +1,13 @@
+wireshark-plugin-afdx (0.2.0-1~bpo7+2) stretch-stand; urgency=medium
+
+  [ Alexander GQ Gerasiov ]
+  * packet-afdx.c: Use gettext_domain from define, not hardcoded one.
+
+  [ Georgy Shramov ]
+  * Make plugin work with WS 2.6.7
+
+ -- Georgy Shramov <goxash@redlab-i.ru>  Mon, 10 Jun 2019 18:20:01 +0300
+
 wireshark-plugin-afdx (0.1.0-1~bpo7+1) wheezy-stand; urgency=medium
 
   * Rebuild for wheezy-stand.
