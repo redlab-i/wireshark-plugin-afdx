@@ -18,7 +18,7 @@
 
 
 project(wireshark-plugin-afdx C)
-set(PROJECT_VERSION 0.1.0)
+set(PROJECT_VERSION 0.2.0)
 
 set(WERROR 1)
 
@@ -40,8 +40,7 @@ include_directories(${GLIB2_INCLUDE_DIRS})
 include_directories (${Wireshark_INCLUDE_DIR})
 
 if(NOT CMAKE_INSTALL_LIBDIR)
-#	set(CMAKE_INSTALL_LIBDIR ~/.wireshark/plugins)
-	set(CMAKE_INSTALL_LIBDIR ${Wireshark_PLUGIN_INSTALL_DIR})
+	set(CMAKE_INSTALL_LIBDIR ${Wireshark_CMAKE_MODULES_DIR}/plugins/${Wireshark_VERSION_MAJOR}.${Wireshark_VERSION_MINOR}/epan)
 endif(NOT CMAKE_INSTALL_LIBDIR)
 message(STATUS "Plug-in will be installed to: ${CMAKE_INSTALL_LIBDIR}")
 
@@ -56,6 +55,8 @@ message(STATUS "Locales will be installed to: ${PACKAGE_LOCALE_DIR}")
 
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+set(PLUGIN_VERSION "${PROJECT_VERSION}")
+add_definitions(-DPLUGIN_VERSION=\"${PLUGIN_VERSION}\")
 
 set(DISSECTOR_SRC src/packet-afdx.c)
 set(DISSECTOR_EXTRA_SRC src/interval_map.c src/afdx_utilities.c)
@@ -71,9 +72,9 @@ if (WERROR)
 endif(WERROR)
 
 
-include( UseMakeDissectorReg )
-register_dissector_files(plugin.c plugin ${DISSECTOR_SRC} ${DISSECTOR_EXTRA_SRC})
 
+include( UseMakePluginReg )
+register_plugin_files(plugin.c plugin ${DISSECTOR_SRC} ${DISSECTOR_EXTRA_SRC})
 
 set(LINK_MODE_LIB SHARED)
 set(LINK_MODE_MODULE MODULE)

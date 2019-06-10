@@ -48,7 +48,7 @@
 #include <glib/gi18n-lib.h>
 
 #undef _
-#define _(text) dgettext("afdx", text)
+#define _(text) dgettext(GETTEXT_PACKAGE, text)
 
 #include "interval_map.h"
 #include "afdx_utilities.h"
@@ -448,9 +448,9 @@ dissect_afdx_first_pass(packet_info* pinfo, tvbuff_t* tvb, gint vl_id) {
 
     guint has_interface_id = 0;
     guint interface_id = 0;
-    if(pinfo->phdr->presence_flags & WTAP_HAS_INTERFACE_ID) {
+    if(pinfo->rec->presence_flags & WTAP_HAS_INTERFACE_ID) {
         has_interface_id = 1;
-        interface_id = pinfo->phdr->interface_id;
+        interface_id = pinfo->rec->rec_header.packet_header.interface_id;
     }
     
     MAKE_KEY(array_key, has_interface_id, interface_id, vl_id);
@@ -551,8 +551,8 @@ dissect_afdx(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, vl_table_row_t
                 _("Frame size larger than MTU: frame size = %d bytes > %d bytes = MTU"), ds_tvb->length, row->mtu);
         }
         
-        if (pinfo->phdr->presence_flags & WTAP_HAS_INTERFACE_ID) {
-            const char *interface_name = epan_get_interface_name(pinfo->epan, pinfo->phdr->interface_id);
+        if (pinfo->rec->presence_flags & WTAP_HAS_INTERFACE_ID) {
+            const char *interface_name = epan_get_interface_name(pinfo->epan, pinfo->rec->rec_header.packet_header.interface_id);
 
             if (interface_name) {
                 ti = proto_tree_add_string_format_value(proto_subtree, hf_afdx_hw_interface, tvb, 0, 0, interface_name, "%s", interface_name);
@@ -830,8 +830,9 @@ dissect_afdx_heur(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, void *dat
         
         col_append_fstr(pinfo->cinfo, COL_INFO, "VL ID: %#06llx", (unsigned long long)vl_id);
         
-        if(pinfo->phdr->presence_flags & WTAP_HAS_INTERFACE_ID) {
-            const char *interface_name = epan_get_interface_name(pinfo->epan, pinfo->phdr->interface_id);
+        if(pinfo->rec->presence_flags & WTAP_HAS_INTERFACE_ID) {
+            const char *interface_name = epan_get_interface_name(pinfo->epan,
+			    pinfo->rec->rec_header.packet_header.interface_id);
             if (interface_name) {
                 col_append_fstr(pinfo->cinfo, COL_INFO, _(", Iface: %s"), interface_name);
             }
@@ -869,7 +870,7 @@ proto_register_afdx(void)
                                             g_str_equal,
                                             g_free,
                                             g_free);
-    bindtextdomain("afdx", LOCALE_PATH);
+    bindtextdomain(GETTEXT_PACKAGE, LOCALE_PATH);
     
     static uat_field_t iface_table_fields[] = {
         UAT_FLD_CSTRING(iface_table_rows, iface_name, N_("Interface name"), N_("Interface name")),
@@ -895,6 +896,7 @@ proto_register_afdx(void)
                   iface_table_update_cb,
                   iface_table_free_cb,
                   iface_table_initialize_cb,
+		  NULL,
                   iface_table_fields
     );
 #else
@@ -910,6 +912,7 @@ proto_register_afdx(void)
                   iface_table_update_cb,
                   iface_table_free_cb,
                   iface_table_initialize_cb,
+		  NULL,
                   iface_table_fields
     );    
 #endif
@@ -1095,11 +1098,11 @@ proto_register_afdx(void)
     prefs_register_filename_preference(afdx_prefs_module, "file",
                  _("Parameters of Virtual Links"),
                  _("A CSV file containing VL ID, MTU, BAG and Jitter for each virtual link"),
-                 &afdx_vl_table_file);
+                 &afdx_vl_table_file, 1);
     prefs_register_filename_preference(afdx_prefs_module, "dst_mac_equipment",
                 _("Destination MAC equipment table"),
                 _("A CSV file containing min dst MAC, max dst MAC, Equipment name and Application name for each equipment and application"),
-                &afdx_mac_equipment_file);
+                &afdx_mac_equipment_file, 1);
     prefs_register_uat_preference(afdx_prefs_module, "valid_vl_files",
                  _("Valid VLs"),
                  _("A table with names of files with valid VL ID ranges for each interface"),
